@@ -54,14 +54,19 @@ while True:
         print(f"{count}) {items}")
         count = count + 1
     choice = input("Please enter your choice: ")
+    print("The choices that you can choose from will be shown underneath")
+    print("\n")
+    #a printed list that displays the choices that the user can choose from 
+    #(ensure it in a dictionary so that the user can input a number and not receive an error)
     choice = choice.strip(" ")
     while choice.isdigit() == False or int(choice) < 1 or int(choice) > count:
         choice = input("Unrecognised input, please choose again: ")
     choice = int(choice)
 
 
+#choices that we must add for the program (Add, Item, View Stock, Update Item, Search, Save & Exit)
 
-    #if choice == 1:                        #created by:
+    #if choice == 1:                        #created by: Dan Caveney (under development)
     #adding stock to warehouse, all new stock must go through this
 
 
