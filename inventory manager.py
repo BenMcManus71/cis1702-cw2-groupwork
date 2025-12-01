@@ -66,7 +66,7 @@ while True:
 
 #choices that we must add for the program (Add, Item, View Stock, Update Item, Search, Save & Exit)
 
-    #if choice == 1:                        #created by: Dan Caveney (under development)
+    #if choice == 1:                        #created by: Dan Caveney (Almost complete, under going testing)
     #adding stock to warehouse, all new stock must go through this
 
 
@@ -97,4 +97,5 @@ while True:
 
     #elif choice == 8:                      #created by:
     #this is to add another value that isnt included already, such as buy in price
+
 
