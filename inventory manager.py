@@ -1,52 +1,54 @@
-import json
-'''data = [{"air freshener": 5, "bulb": 56, "dash cam": 68},    ### UNCOMMENT THIS TO CREATE DATA.JSON ###
-{"tire": 16, "window tint": 10},
-{
-    "air freshener":{
-        "cost": 2,          #how much we sell them for
-        "stock": 100,       #how much we have (in the warehouse)
-        "product_code": "FBJ3ND",   
-        "quantity_per_unit": 30,    #how many of an item you get when you buy 1 unit
-        "sold": 43
+import json  #Fixed up the data and json loading, should work properly now. Updated by: Dan Caveney
+data = [
+    {"air freshener": 5, "bulb": 56, "dash cam": 68, "tire": 16, "window tint": 10},
+    {
+        "air freshener": {
+            "cost": 2,
+            "stock": 100,
+            "product_code": "FBJ3ND",
+            "quantity_per_unit": 30,
+            "sold": 43
+        },
+        "bulb": {
+            "cost": 4,
+            "stock": 130,
+            "product_code": "JNV2HR",
+            "quantity_per_unit": 12,
+            "sold": 64
+        },
+        "dash cam": {
+            "cost": 70,
+            "stock": 20,
+            "product_code": "DBK6NS",
+            "quantity_per_unit": 1,
+            "sold": 52
+        },
+        "tire": {
+            "cost": 40,
+            "stock": 40,
+            "product_code": "JYD9NY",
+            "quantity_per_unit": 1,
+            "sold": 40
+        },
+        "window tint": {
+            "cost": 18,
+            "stock": 0,
+            "product_code": "AKN5JD",
+            "quantity_per_unit": 10,
+            "sold": 4
+        }
     },
-    "bulb":{
-        "cost": 4,
-        "stock": 130,
-        "product_code": "JNV2HR",
-        "quantity_per_unit": 12,
-        "sold": 64
-    },
-    "dash cam":{
-        "cost": 70,
-        "stock":20,
-        "product_code": "DBK6NS",
-        "quantity_per_unit": 1,
-        "sold": 52
-    },
-    "tire":{
-        "cost": 40,
-        "sotck": 40,
-        "product_code": "JYD9NY",
-        "quantity_per_unit":1,
-        "sale": 40
-    },
-    "window tint":{
-        "cost": 18,
-        "stock": 0,
-        "product code": "AKN5JD",
-        "quantity_per_unit": 10,
-        "sale": 4
-    }
-},
-["Add stock", "Move stock", "Sale / remove stock", "save", "Stock shortages", "Stock breakdown", "Change product values", "add product value"]]
+    ["Add item", "Move stock", "Sale / remove stock", "save", "Stock shortages",
+     "Stock breakdown", "Change product values", "add product value"]
+]
 with open ("data.json", "w") as file:
-    json.dump(data, file)'''
-with open ("data.json", "r") as file:           #all basic setup created by: Ben McManus
-    data= json.load(file)
-    shop_item_quantity = data[0]# quantity of items found in the shop
-    garage_item_quantity = data[1]# quantity of items found in the garage
-    warehouse = data [2]# all other items in storage, ALL other data asociated with items will be found here too
-    menu = data[3]
+    json.dump(data, file, indent=4)
+    
+with open("data.json", "r") as file:
+    data = json.load(file)
+    shop_item_quantity = data[0]
+    garage_item_quantity = data[1]
+    menu = data[2]
 
 while True:                         
     count = 1
