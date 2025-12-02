@@ -67,10 +67,60 @@ while True:
 
 
 #choices that we must add for the program (Add, Item, View Stock, Update Item, Search, Save & Exit)
+    #if choice == 1:                        #created by: Dan Caveney
+    #adding stock to warehouse, all new stock must go through this    
+    if choice == 1:
+        print("\n=== Add items to Warehouse ===")
 
-    #if choice == 1:                        #created by: Dan Caveney (Almost complete, under going testing)
-    #adding stock to warehouse, all new stock must go through this
+        print("Current products:")
+        for item in garage_item_quantity:
+            print("-", item)
 
+        product_item = input("Enter the name of the new product for the inventory: ").strip()
+
+        while product_item in garage_item_quantity:
+            product_item = input("Invalid input. That product is already in the inventory: ").strip()
+        
+        cost = (input("Enter cost of the new product: "))
+        while not cost.isdigit():
+            cost = (input("Invalid, enter a number for the cost: "))
+
+        stock = (input("Enter the stock of the new product: "))
+        while not stock.isdigit():
+            stock = (input("Invalid, enter a number for the stock: "))
+
+        product_code = input("Enter the 6 digit product code (e.g A17YJF): ").strip()
+
+        quantity = (input("Enter in the Quantity_per_unit: "))
+        while not quantity.isdigit():
+            quantity = (input("Invalid, enter a number for the quantity: "))
+
+        sold = (input("Enter in the amount sold (if none input 0): "))
+        while not sold.isdigit():
+            sold = (input("Invalid, enter a number for the sold amount: "))
+
+        new_product = {
+            "cost": int(cost),
+            "stock": int(stock),
+            "product_code": product_code,
+            "quantity_per_unit": int(quantity),
+            "sold": int(sold),
+        }
+
+        garage_item_quantity[product_item] = new_product
+
+
+        save = input("Save changes? (y/n): ").lower().strip()
+        if save == "y":
+            with open("data.json", "w") as file:
+                json.dump(data, file, indent=4)
+            print("Changes saved.\n")
+        elif save == "n":
+            print("Changes not saved")
+        else:
+            print("Invalid input, enter y or n")
+            exit()
+    
 
     #elif choice == 2:                        #created by:
     #moving stock around the 3 different storage areas, the variable names are warehouse, shop_item_quantity and garage_item_quantity
@@ -99,6 +149,7 @@ while True:
 
     #elif choice == 8:                      #created by:
     #this is to add another value that isnt included already, such as buy in price
+
 
 
 
