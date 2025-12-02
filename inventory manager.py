@@ -84,7 +84,7 @@ while True:
     #this should be to save all changes made to data.json
 
 
-    #elif choice == 5:                      #created by:
+    #elif choice == 5:                      #created by: Aaron Rielly
     #this section is to show any recomendations of what stock should be bought if we are running low
 
 
@@ -99,5 +99,6 @@ while True:
 
     #elif choice == 8:                      #created by:
     #this is to add another value that isnt included already, such as buy in price
+
 
 
