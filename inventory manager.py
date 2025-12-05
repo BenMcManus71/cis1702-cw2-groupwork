@@ -130,7 +130,7 @@ while True:
     # this is to log a sale, and to remove stock out of inventory, for if it broke ect, there should be a different statement for each
 
 
-    #elif choice ==4:                       #created by:
+    #elif choice ==4:                       #created by: Daniel Caveney
     #this should be to save all changes made to data.json
 
 
@@ -149,6 +149,7 @@ while True:
 
     #elif choice == 8:                      #created by:
     #this is to add another value that isnt included already, such as buy in price
+
 
 
 
