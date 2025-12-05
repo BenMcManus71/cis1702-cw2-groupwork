@@ -122,7 +122,7 @@ while True:
             exit()
     
 
-    #elif choice == 2:                        #created by:
+    #elif choice == 2:                        #created by: Ben McManus
     #moving stock around the 3 different storage areas, the variable names are warehouse, shop_item_quantity and garage_item_quantity
 
 
@@ -149,6 +149,7 @@ while True:
 
     #elif choice == 8:                      #created by:
     #this is to add another value that isnt included already, such as buy in price
+
 
 
 
