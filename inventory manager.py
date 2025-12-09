@@ -39,7 +39,7 @@ data = [
         }
     },
     ["Add item", "Move stock", "Sale / remove stock", "save", "Stock shortages",
-     "Stock breakdown", "Change product values", "add product value"]
+     "Stock breakdown", "Change product values", "add product value", "Exit"]
 ]
 with open ("data.json", "w") as file:
     json.dump(data, file, indent=4)
@@ -164,6 +164,13 @@ while True:
 
     #elif choice == 8:                      #created by:
     #this is to add another value that isnt included already, such as buy in price
+
+
+    elif choice == 9:                       #created by: Dan Caveney
+        print("=== Have a good day! Be sure that you saved everything and there aren't any problems ===")
+        print("=== Come back again some day! ===")
+        exit()
+
 
 
 
