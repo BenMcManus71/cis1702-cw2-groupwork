@@ -130,7 +130,22 @@ while True:
     # this is to log a sale, and to remove stock out of inventory, for if it broke ect, there should be a different statement for each
 
 
-    #elif choice ==4:                       #created by: Daniel Caveney
+    elif choice == 4:                       #created by: Dan Caveney
+        def save_changes():
+            print("=== You have selected the Save option ===")
+            print("\n=== Here you can choose to save every change made to the inventory ===\n")
+
+            save = input("Do you want to save all your changes? (y/n)").lower().strip()
+            if save == "y":
+                with open("data.json", "w") as f:
+                    json.dump(data, f, indent=4)
+                print("Your changes have been successfully changed")
+            elif save == "n":
+                print("You have decided to not save your changes")
+                print("Make sure you look over your changes before saving it")
+            else:
+                print("\nInvalid input, enter y or n. \n")
+        save_changes()
     #this should be to save all changes made to data.json
 
 
@@ -149,6 +164,7 @@ while True:
 
     #elif choice == 8:                      #created by:
     #this is to add another value that isnt included already, such as buy in price
+
 
 
 
