@@ -170,10 +170,12 @@ while True:
     #this is to add another value that isnt included already, such as buy in price
 
 
+    #allows for the user to exit the program during the choice selection
     elif choice == 9:                       #created by: Dan Caveney
         print("=== Have a good day! Be sure that you saved everything and there aren't any problems ===")
         print("=== Come back again some day! ===")
         exit()
+
 
 
 
