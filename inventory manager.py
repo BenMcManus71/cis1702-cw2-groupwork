@@ -72,15 +72,17 @@ while True:
     if choice == 1:
         print("\n=== Add items to Warehouse ===")
 
-        print("Current products:")
+        print("Current products:")        #prints out the current products inside the inventory (all the info)
         for item in garage_item_quantity:
             print("-", item)
 
+        #new product being made, while loop to prevent duplicate products
         product_item = input("Enter the name of the new product for the inventory: ").strip()
 
         while product_item in garage_item_quantity:
             product_item = input("Invalid input. That product is already in the inventory: ").strip()
-        
+
+        #these five inputs allow for user to add all the required info, including error invalidation
         cost = (input("Enter cost of the new product: "))
         while not cost.isdigit():
             cost = (input("Invalid, enter a number for the cost: "))
@@ -99,6 +101,7 @@ while True:
         while not sold.isdigit():
             sold = (input("Invalid, enter a number for the sold amount: "))
 
+        #empty dictionary for the program to insert the inputted data
         new_product = {
             "cost": int(cost),
             "stock": int(stock),
@@ -107,9 +110,10 @@ while True:
             "sold": int(sold),
         }
 
+        #adds the new product into the inventory
         garage_item_quantity[product_item] = new_product
 
-
+        #saves the new item into the json file, allows for the user to also not save incase an error was made
         save = input("Save changes? (y/n): ").lower().strip()
         if save == "y":
             with open("data.json", "w") as file:
@@ -170,6 +174,7 @@ while True:
         print("=== Have a good day! Be sure that you saved everything and there aren't any problems ===")
         print("=== Come back again some day! ===")
         exit()
+
 
 
 
