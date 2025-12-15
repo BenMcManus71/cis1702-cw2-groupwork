@@ -153,10 +153,57 @@ while True:
     #this should be to save all changes made to data.json
 
 
-    #elif choice == 5:                      #created by: Aaron Rielly
+    
+    elif choice == 5:                      #created by: Aaron Rielly
     #this section is to show any recomendations of what stock should be bought if we are running low
 
+        print("\n===================================")
+        print("       STOCK SHORTAGE REPORT       ")
+        print("===================================\n")
 
+        low_stock_limit = 10                                            # Defines the low stock level as 10
+
+        low_stock_items_found = False                                   # Tracks whether any low stock items are found
+
+        print("Low stock criteria:")
+        print(f"- Stock equal to 0")
+        print(f"- Stock less than or equal to {low_stock_limit} units\n")
+
+        for product_name in garage_item_quantity:                       # Loops through every product in the inventory
+            product_details = garage_item_quantity[product_name]
+
+            current_stock = product_details.get("stock", 0)
+            units_sold = product_details.get("sold", 0)
+            product_code = product_details.get("product_code", "UNKNOWN")
+
+            if current_stock == 0 or current_stock <= low_stock_limit:  # Checks if the item is below the low stock limit
+
+                low_stock_items_found = True
+
+                print("-----------------------------------")
+                print(f"Product Name   : {product_name}")
+                print(f"Product Code   : {product_code}")
+                print(f"Stock Remaining: {current_stock}")
+                print(f"Units Sold     : {units_sold}")
+
+                if current_stock == 0:                                  # If low-stock items were detected:
+                    print("Status         : OUT OF STOCK")
+                    print("Recommendation : Reorder immediately.")
+                else:
+                    print("Status         : LOW STOCK")
+                    print("Recommendation : Consider reordering soon.")
+
+                print("-----------------------------------\n")
+
+        if not low_stock_items_found:                                   # If no low-stock items were detected:
+            print("All products currently have sufficient stock levels.")
+            print("No reordering is required at this time.\n")
+            
+
+        input("Press Enter to return to the main menu...")
+
+
+    
     #elif choice == 6:                      #created by:
     #this section is for showing infomation associated, this could be showing where how much stock is located, an item as a percentage of the whole stock value ect
     #it should also have a way to display items added if choice == 7
@@ -175,6 +222,7 @@ while True:
         print("=== Have a good day! Be sure that you saved everything and there aren't any problems ===")
         print("=== Come back again some day! ===")
         exit()
+
 
 
 
