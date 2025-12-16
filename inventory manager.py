@@ -208,7 +208,7 @@ while True:
 
     
     #elif choice == 6:                      #created by:
-    #this section is for showing infomation associated, this could be showing where how much stock is located, an item as a percentage of the whole stock value ect
+    #this section is for showing infomation associated, this could be showing where how much stock is located, an item as a percentage of the whole stock value etc
     #it should also have a way to display items added if choice == 7
 
 
@@ -225,6 +225,7 @@ while True:
         print("=== Have a good day! Be sure that you saved everything and there aren't any problems ===")
         print("=== Come back again some day! ===")
         exit()
+
 
 
 
