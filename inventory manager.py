@@ -213,7 +213,7 @@ while True:
 
 
     #elif choice == 7:                      #created by:
-    #this is to change values asociated with values, such as the price or quantity_per_unit
+    #this is to update an items value, which involves changing the name, price & quantity_per_unit
 
 
     #elif choice == 8:                      #created by:
@@ -225,6 +225,7 @@ while True:
         print("=== Have a good day! Be sure that you saved everything and there aren't any problems ===")
         print("=== Come back again some day! ===")
         exit()
+
 
 
 
