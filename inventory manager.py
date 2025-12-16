@@ -186,7 +186,10 @@ while True:
                 print(f"Stock Remaining: {current_stock}")
                 print(f"Units Sold     : {units_sold}")
 
-                if current_stock == 0:                                  # If low-stock items were detected:
+                if current_stock < 0:                                     # If stock is below 0:
+                    print("Status         : STOCK LEVEL BELOW 0")
+                    print("Recommendation : Check the wearhouse immediately for stock levels & update the stockfile.")
+                elif current_stock == 0:                                  # If low-stock items were detected:
                     print("Status         : OUT OF STOCK")
                     print("Recommendation : Reorder immediately.")
                 else:
@@ -222,6 +225,7 @@ while True:
         print("=== Have a good day! Be sure that you saved everything and there aren't any problems ===")
         print("=== Come back again some day! ===")
         exit()
+
 
 
 
