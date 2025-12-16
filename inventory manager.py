@@ -212,10 +212,10 @@ while True:
     #it should also have a way to display items added if choice == 7
 
 
-    #elif choice == 7:                      #created by:
+    #elif choice == 7:                      #created by: Aaron Rielly?
     #this is to update an items value, which involves changing the name, price & quantity_per_unit
 
-
+ 
     #elif choice == 8:                      #created by:
     #this is to add another value that isnt included already, such as buy in price
 
@@ -225,6 +225,7 @@ while True:
         print("=== Have a good day! Be sure that you saved everything and there aren't any problems ===")
         print("=== Come back again some day! ===")
         exit()
+
 
 
 
