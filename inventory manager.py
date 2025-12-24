@@ -126,8 +126,101 @@ while True:
             exit()
     
 
-    #elif choice == 2:                        #created by: Ben McManus
+    elif choice == 2:                        #created by: Ben McManus
     #moving stock around the 3 different storage areas, the variable names are warehouse, shop_item_quantity and garage_item_quantity
+
+        print("you have chose to move stock from one location to another")
+        print("what products would you like to move?:")
+        count = 1
+        for items in garage_item_quantity:
+            print(f"{count}) {items}")
+            count = count + 1
+        choice = input("\nwhich item would you like to move?: ")
+        choice = choice.replace(" ", "")
+        while choice.isdigit() == False or int(choice) < 1 or int(choice) > count:
+            choice = input("invalid input, please enter again: ")
+        choice = int(choice)
+
+        choice = choice - 1
+        choice = list(garage_item_quantity.keys())[choice]
+        has_items = []
+        if garage_item_quantity[choice]["stock"] > 0:
+            has_items.append("garage")
+        if shop_item_quantity[choice] > 0:
+            has_items.append("shop")
+
+        if len(has_items) == 1:
+
+            if "shop" in has_items:
+                to_from = input(f"\nwould you like to move {choice} from the shop (you have {shop_item_quantity[choice]}) to the garage (you have {garage_item_quantity[choice]["stock"]})? ")
+
+                while to_from not in ["y", "n", "yes", "no"]:
+                    to_from = input("invalid input, please answer again: ")
+                if to_from == "yes":
+                    to_from = "shop"
+                elif to_from == "no":
+                    pass
+                
+            elif "garage" in has_items:
+                to_from = input(f"\nwould you like to move {choice} from the garage (you have {garage_item_quantity[choice]["stock"]}) to the shop (you have {shop_item_quantity[choice]})?")
+                while to_from not in ["y", "n", "yes", "no"]:
+                    to_from = input("invalid input, please answer again: ")
+                if to_from == "yes":
+                    to_from = "garage"
+                elif to_from == "no":
+                    pass
+
+        
+        elif len(has_items) ==2:
+            print(f"do you want to move {choice} from the shop (you have {shop_item_quantity[choice]}) or from the garage (you have {garage_item_quantity[choice]["stock"]})?")
+            to_from = input("please type \"shop\" for shop, or \"garage\" for garage: ")
+            to_from = to_from.lower()
+            to_from = to_from.replace(" ","")
+            while to_from != "shop" and to_from != "garage":
+                to_from = input("invalid input, please enter again: ")
+                to_from = to_from.lower()
+                to_from = to_from.replace(" ","")
+            if to_from == "shop":
+                print("\nyou have chosen to move stock from the shop to the garage")
+                to_from = "shop"
+
+            elif to_from == "garage":
+                print("\nyou have chosen to move stock from the garage to the shop")
+                to_from = "garage"
+           
+        else:
+            print (f"there is no {choice} in any storage areas")
+        
+
+        if to_from == "garage":
+            print(f"\nyou currently have {garage_item_quantity[choice]["stock"]} {choice} in the garage")
+            quantity = input("how much would you like to move to the shop?: ")
+            quantity = quantity.replace(" ","")
+            while quantity.isdigit() == False or int(quantity) < 1 or int(quantity) > garage_item_quantity[choice]["stock"]:
+                quantity = input("invalid input, please answer again: ")
+            quantity = int(quantity)
+            garage_item_quantity[choice]["stock"] = garage_item_quantity[choice]["stock"] - quantity
+            shop_item_quantity[choice] = shop_item_quantity[choice] + quantity
+            print(f"you have successfully moved {quantity} {choice} from the garage to the shop")
+        
+        elif to_from == "shop":
+            print(f"\nyou currently have {shop_item_quantity[choice]} {choice} in the shop")
+            quantity = input("how much would you like to move to the garage?: ")
+            quantity = quantity.replace(" ","")
+            while quantity.isdigit() == False or int(quantity) < 1 or int(quantity) > shop_item_quantity[choice]:
+                quantity = input("invalid input, please answer again: ")
+            quantity = int(quantity)
+            shop_item_quantity[choice] = shop_item_quantity[choice] - quantity
+            garage_item_quantity[choice]["stock"] = garage_item_quantity[choice]["stock"] + quantity
+            print(f"\nyou have successfully moved {quantity} {choice} from the shop to the garage\n")
+
+
+
+
+
+
+
+    
 
 
     #elif choice == 3:                      #created by:
@@ -225,6 +318,7 @@ while True:
         print("=== Have a good day! Be sure that you saved everything and there aren't any problems ===")
         print("=== Come back again some day! ===")
         exit()
+
 
 
 
