@@ -127,7 +127,7 @@ while True:
     
 
     elif choice == 2:                        #created by: Ben McManus
-    #moving stock around the 3 different storage areas, the variable names are warehouse, shop_item_quantity and garage_item_quantity
+    #moving stock around the 2 different storage areas, the variable names are shop_item_quantity and garage_item_quantity
 
         print("you have chose to move stock from one location to another")
         print("what products would you like to move?:")
@@ -318,6 +318,7 @@ while True:
         print("=== Have a good day! Be sure that you saved everything and there aren't any problems ===")
         print("=== Come back again some day! ===")
         exit()
+
 
 
 
