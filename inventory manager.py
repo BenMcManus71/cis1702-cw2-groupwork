@@ -315,9 +315,13 @@ while True:
 
     #allows for the user to exit the program during the choice selection
     elif choice == 9:                       #created by: Dan Caveney
-        print("=== Have a good day! Be sure that you saved everything and there aren't any problems ===")
-        print("=== Come back again some day! ===")
+        print("=== Have a good day! let us save the program again for you, be sure to double check everything is as it should be ===")
+        with open("data.json", "w") as f:
+            json.dump(data, f, indent=4)
+
+        print("\n=== Come back again some day! ===\n")
         exit()
+
 
 
 
