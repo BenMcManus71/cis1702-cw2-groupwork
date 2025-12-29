@@ -39,7 +39,7 @@ data = [
         }
     },
     ["Add item", "Move stock", "Sale / remove stock", "save", "Stock shortages",
-     "Stock breakdown", "Change product values", "add product value", "Exit"]
+     "Stock breakdown", "Change product values", "add product value", "Save and Exit"]
 ]
 with open ("data.json", "w") as file:
     json.dump(data, file, indent=4)
@@ -321,6 +321,7 @@ while True:
 
         print("\n=== Come back again some day! ===\n")
         exit()
+
 
 
 
