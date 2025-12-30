@@ -223,8 +223,110 @@ while True:
     
 
 
-    #elif choice == 3:                      #created by:
+    #elif choice == 3:                      #created by: Mia Watabe
     # this is to log a sale, and to remove stock out of inventory, for if it broke ect, there should be a different statement for each
+    elif choice == 3:
+        print("You have chosen to log sale or remove stock.")
+        log = input("Would you like to log a sale? (y/n)").strip().lower()
+
+        if log == 'n':
+            # ================= REMOVE STOCK =================
+            print("You have chosen to remove stock.")
+            removeItem = input("What item would you like to remove? ").strip().lower()
+
+            if removeItem in shop_item_quantity:
+                print("Item found.")
+                removeQty = input("How many would you like to remove?")
+
+                if not removeQty.isdigit():
+                    print("Please use numbers only")
+                    continue
+
+                removeQty = int(removeQty)
+                shopQty = shop_item_quantity[removeItem]
+
+                if removeQty <= shopQty:
+                    newQty = shopQty - removeQty
+                    shop_item_quantity[removeItem] = newQty
+                else:
+                    print("Error: Not enough Stock")
+
+            elif removeItem in garage_item_quantity:
+                print("Item found.")
+                removeQty = input("How many would you like to remove?")
+
+                if not removeQty.isdigit():
+                    print("Please use numbers only")
+                    continue
+
+                removeQty = int(removeQty)
+                garageQty = garage_item_quantity[removeItem]["stock"]
+
+                if removeQty <= garageQty:
+                    newQty = garageQty - removeQty
+                    garage_item_quantity[removeItem]["stock"] = newQty
+                    print("Stock updated.")
+                else:
+                    print("Error: Not enough Stock")
+
+            else:
+                print("Item not found.")
+
+        elif log == 'y':
+        # ================= LOG SALE =================
+
+            print("You have chosen to log a sale.")
+            removeItem = input("What item was sold? ").strip().lower()
+
+            if removeItem in shop_item_quantity:
+                print("Item found.")
+                removeQty = input("How many were sold?")
+
+                if not removeQty.isdigit():
+                    print("Please use numbers only")
+                    continue
+
+                removeQty = int(removeQty)
+                shopQty = shop_item_quantity[removeItem]
+                garageSold = garage_item_quantity[removeItem]["sold"]
+
+                if removeQty <= shopQty:
+                    newQty = shopQty - removeQty
+                    shop_item_quantity[removeItem] = newQty
+                    soldQty = garageSold + removeQty
+                    garage_item_quantity[removeItem]["sold"] = soldQty
+
+                else:
+                    print("Error: Not enough Stock")
+
+            elif removeItem in garage_item_quantity:
+                print("Item found.")
+                removeQty = input("How many were sold?")
+
+                if not removeQty.isdigit():
+                    print("Please use numbers only")
+                    continue
+
+                removeQty = int(removeQty)
+                garageQty = garage_item_quantity[removeItem]["stock"]
+                garageSold = garage_item_quantity[removeItem]["sold"]
+
+                if removeQty <= garageQty:
+                    newQty = garageQty - removeQty
+                    garage_item_quantity[removeItem]["stock"] = newQty
+                    soldQty = garageSold + removeQty
+                    garage_item_quantity[removeItem]["sold"] = soldQty
+
+                    print("Sale logged.")
+                else:
+                    print("Error: Not enough Stock")
+
+            else:
+                print("Item not found.")
+
+        else:
+            print("ERROR Please input only y or n.")
+
 
 
     elif choice == 4:                       #created by: Dan Caveney
@@ -321,6 +423,7 @@ while True:
 
         print("\n=== Come back again some day! ===\n")
         exit()
+
 
 
 
