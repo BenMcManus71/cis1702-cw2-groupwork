@@ -1,4 +1,4 @@
-import json  #Fixed up the data and json loading, should work properly now. Updated by: Dan Caveney
+import json  #Fixed up the data and json loading, should work properly now. created by Ben McManus. Updated and tested by: Dan Caveney
 data = [
     {"air freshener": 5, "bulb": 56, "dash cam": 68, "tire": 16, "window tint": 10},
     {
@@ -448,6 +448,7 @@ while True:
             else:
                 ("\nInvalid input! enter y or n\n")
         exit_program()
+
 
 
 
