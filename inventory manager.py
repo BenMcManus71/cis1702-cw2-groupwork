@@ -417,12 +417,38 @@ while True:
 
     #allows for the user to exit the program during the choice selection
     elif choice == 9:                       #created by: Dan Caveney
-        print("=== Have a good day! let us save the program again for you, be sure to double check everything is as it should be ===")
-        with open("data.json", "w") as f:
-            json.dump(data, f, indent=4)
+        def exit_program():
+            print("=== You have selected the Save and Exit option. Make sure everything is as it should before saving and exiting the program ===")
+            print("\n=== Before you leave, would you like to save your changes? ===\n")
 
-        print("\n=== Come back again some day! ===\n")
-        exit()
+            save = input("Would you like to save all changes made to the program before exiting (input y or n)?: ").lower().strip()
+            
+            if save == 'y':
+                with open("data.json", "w") as f:
+                    json.dump(data, f, indent=4)
+
+                print("\nChanges saved successfully!\n")
+
+                save_confirm = input("You've chosen to save your changes, and now you're exiting the program with the changes made, is this what you want?: ")
+                if save_confirm == 'y':
+                    print("You have decided to not save your changes.")
+                    print("\n=== Come back again some day! ===\n")
+                    exit()
+                elif save_confirm == 'n':
+                    print("\nVery well, you've chosen not to exit the program yet\n")
+
+            elif save == 'n':
+                save_confirm = input("You've chosen to not save your changes, meaning you're exiting the program without the changes, is this what you want?: ")
+                if save_confirm == 'y':
+                    print("You have decided to not save your changes.")
+                    print("\n=== Come back again some day! ===\n")
+                    exit()
+                elif save_confirm == 'n':
+                    print("\nVery well, you've chosen not to exit the program yet\n")
+            else:
+                ("\nInvalid input! enter y or n\n")
+        exit_program()
+
 
 
 
