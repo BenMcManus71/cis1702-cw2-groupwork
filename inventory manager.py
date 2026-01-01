@@ -146,9 +146,14 @@ while True:
         has_items = []
         if garage_item_quantity[choice]["stock"] > 0:
             has_items.append("garage")
-        if shop_item_quantity[choice] > 0:
-            has_items.append("shop")
 
+
+        if choice in shop_item_quantity:
+            if shop_item_quantity[choice] > 0:
+                has_items.append("shop")
+        else:
+            shop_item_quantity.update({choice: 0})
+        
         if len(has_items) == 1:
 
             if "shop" in has_items:
@@ -448,6 +453,7 @@ while True:
             else:
                 ("\nInvalid input! enter y or n\n")
         exit_program()
+
 
 
 
