@@ -412,8 +412,83 @@ while True:
     #it should also have a way to display items added if choice == 7
 
 
-    #elif choice == 7:                      #created by: Aaron Rielly?
-    #this is to update an items value, which involves changing the name, price & quantity_per_unit
+    elif choice == 7:                      # created by: Aaron Rielly
+    # this is to update an items value, which involves changing the name, price & quantity_per_unit
+
+        print("\n===================================")
+        print("\n=== CHANGE PRODUCT VALUES ===\n")
+        print("\n===================================")
+
+        # list current products
+        print("Current products:")
+        count = 1
+        for item in garage_item_quantity:
+            print(f"{count}) {item}")
+            count += 1
+
+        choice_item = input("\nSelect a product number to update: ")
+        while not choice_item.isdigit() or int(choice_item) < 1 or int(choice_item) >= count:
+            choice_item = input("Invalid input, please choose again: ")
+
+        choice_item = int(choice_item) - 1
+        product_name = list(garage_item_quantity.keys())[choice_item]
+        product = garage_item_quantity[product_name]
+
+        print(f"\nYou are currently making changes to: {product_name}")
+        print("Press Enter to keep the current value of a product.\n")
+
+        # update name
+        new_name = input(f"New name [{product_name}]: ")
+        if new_name and new_name not in garage_item_quantity:                           #Checks to make sure the new name isnt already being used.
+            garage_item_quantity[new_name] = garage_item_quantity.pop(product_name)
+            shop_item_quantity[new_name] = shop_item_quantity.pop(product_name, 0)
+            product_name = new_name
+            product = garage_item_quantity[product_name]
+
+        # update cost
+        new_cost = input(f"New cost [{product['cost']}]: ")
+        if new_cost:
+            while not new_cost.isdigit():                                           #Checks value enetered is a digit
+                new_cost = input("Invalid input. Enter a number: ")                 #If not a digit, user prompted again
+            product["cost"] = int(new_cost)                                         
+
+        # update stock value
+        new_stock = input(f"New stock [{product['stock']}]: ")
+        if new_stock:
+            while not new_stock.isdigit():                                          #Checks value enetered is a digit
+                new_stock = input("Invalid input. Enter a number: ")                #If not a digit, user prompted again
+            product["stock"] = int(new_stock)
+
+        # update quantity per unit
+        new_quantity_per_unit = input(f"New quantity per unit [{product['quantity_per_unit']}]: ")
+        if new_quantity_per_unit:
+            while not new_quantity_per_unit.isdigit():                                      #Checks value enetered is a digit
+                new_quantity_per_unit = input("Invalid input. Enter a number: ")            #If not a digit, user prompted again
+            product["quantity_per_unit"] = int(new_quantity_per_unit)
+
+        # update product code
+        new_product_code = input(f"New product code [{product['product_code']}]: ")
+        if new_product_code:
+            product["product_code"] = new_product_code
+
+
+        # update sold value
+        new_sold = input(f"New sold amount [{product['sold']}]: ")
+        if new_sold:
+            while not new_sold.isdigit():
+                new_sold = input("Invalid input. Enter a number: ")
+            product["sold"] = int(new_sold)
+
+        # save option value
+        save = input("\nSave changes? (y/n): ").lower()                         #.lower() means any capital letters are lowered to pass the next function
+        if save == "y":
+            with open("data.json", "w") as file:
+                json.dump(data, file, indent=4)
+            print("Changes saved.\n")
+        elif save == "n":
+            print("Changes not saved.\n")
+        else:
+            print("Invalid input, Changes not saved. Please try again.\n")
 
  
     #elif choice == 8:                      #created by:
@@ -453,6 +528,7 @@ while True:
             else:
                 ("\nInvalid input! enter y or n\n")
         exit_program()
+
 
 
 
