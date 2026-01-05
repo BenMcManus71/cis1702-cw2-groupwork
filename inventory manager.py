@@ -489,6 +489,7 @@ while True:
             print("Changes not saved.\n")
         else:
             print("Invalid input, Changes not saved. Please try again.\n")
+            save = input("\nSave changes? (y/n): ").lower() 
 
  
     #elif choice == 8:                      #created by:
@@ -528,6 +529,7 @@ while True:
             else:
                 ("\nInvalid input! enter y or n\n")
         exit_program()
+
 
 
 
