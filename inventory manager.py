@@ -422,8 +422,9 @@ while True:
         # list current products
         print("Current products:")
         count = 1
-        for item in garage_item_quantity:
-            print(f"{count}) {item}")
+        for product_name, product_details in garage_item_quantity.items():
+            product_id = product_details.get("product_code", "UNKNOWN")
+            print(f"{count}) ID: {product_id} | Name: {product_name}")
             count += 1
 
         choice_item = input("\nSelect a product number to update: ")
@@ -529,6 +530,7 @@ while True:
             else:
                 ("\nInvalid input! enter y or n\n")
         exit_program()
+
 
 
 
