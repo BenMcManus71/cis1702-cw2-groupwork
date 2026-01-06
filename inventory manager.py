@@ -513,15 +513,20 @@ while True:
 
         # save option value
         save = input("\nSave changes? (y/n): ").lower()                         #.lower() means any capital letters are lowered to pass the next function
-        if save == "y":
-            with open("data.json", "w") as file:
-                json.dump(data, file, indent=4)
-            print("Changes saved.\n")
-        elif save == "n":
-            print("Changes not saved.\n")
-        else:
-            print("Invalid input, Changes not saved. Please try again.\n")
-            save = input("\nSave changes? (y/n): ").lower() 
+        correctinput = False
+        while correctinput == False:
+            if save == "y":
+                with open("data.json", "w") as file:
+                    json.dump(data, file, indent=4)
+                print("Changes saved.\n")
+                correctinput = True
+            elif save == "n":
+                print("Changes not saved.\n")
+                correctinput = True
+            else:
+                print("Invalid input, Changes not saved. Please try again.\n")
+                save = input("\nSave changes? (y/n): ").lower() 
+
 
  
     elif choice == 8:                      #created by: robert littler
@@ -590,6 +595,7 @@ while True:
             else:
                 ("\nInvalid input! enter y or n\n")
         exit_program()
+
 
 
 
