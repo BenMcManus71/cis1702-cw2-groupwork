@@ -135,14 +135,14 @@ while True:
         for items in garage_item_quantity:
             print(f"{count}) {items}")
             count = count + 1
-        choice = input("\nwhich item would you like to move?: ")
+        choice = input("\nwhich item would you like to move?: ") #this i sto choose what item the user wants to use
         choice = choice.replace(" ", "")
         while choice.isdigit() == False or int(choice) < 1 or int(choice) > count:
             choice = input("invalid input, please enter again: ")
         choice = int(choice)
 
         choice = choice - 1
-        choice = list(garage_item_quantity.keys())[choice]
+        choice = list(garage_item_quantity.keys())[choice]    #this is to check which storage areas have the item stored
         has_items = []
         if garage_item_quantity[choice]["stock"] > 0:
             has_items.append("garage")
@@ -154,7 +154,7 @@ while True:
         else:
             shop_item_quantity.update({choice: 0})
         
-        if len(has_items) == 1:
+        if len(has_items) == 1: #automatically choosing where to move items from if there is only one area with that item stored
 
             if "shop" in has_items:
                 to_from = input(f"\nwould you like to move {choice} from the shop (you have {shop_item_quantity[choice]}) to the garage (you have {garage_item_quantity[choice]["stock"]})? ")
@@ -176,7 +176,7 @@ while True:
                     pass
 
         
-        elif len(has_items) ==2:
+        elif len(has_items) ==2:        #allows the user to choose where to move item from incase there is multiple storage areas
             print(f"do you want to move {choice} from the shop (you have {shop_item_quantity[choice]}) or from the garage (you have {garage_item_quantity[choice]["stock"]})?")
             to_from = input("please type \"shop\" for shop, or \"garage\" for garage: ")
             to_from = to_from.lower()
@@ -204,7 +204,7 @@ while True:
             while quantity.isdigit() == False or int(quantity) < 1 or int(quantity) > garage_item_quantity[choice]["stock"]:
                 quantity = input("invalid input, please answer again: ")
             quantity = int(quantity)
-            garage_item_quantity[choice]["stock"] = garage_item_quantity[choice]["stock"] - quantity
+            garage_item_quantity[choice]["stock"] = garage_item_quantity[choice]["stock"] - quantity    #logic to actualy move the values from one storage area to another
             shop_item_quantity[choice] = shop_item_quantity[choice] + quantity
             print(f"you have successfully moved {quantity} {choice} from the garage to the shop")
         
@@ -590,6 +590,7 @@ while True:
             else:
                 ("\nInvalid input! enter y or n\n")
         exit_program()
+
 
 
 
