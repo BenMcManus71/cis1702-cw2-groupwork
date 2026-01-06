@@ -335,6 +335,7 @@ while True:
 
 
     elif choice == 4:                       #created by: Dan Caveney
+        #This choice is to allow for the user to save at any point during their use of the program
         def save_changes():
             print("=== You have selected the Save option ===")
             print("\n=== Here you can choose to save every change made to the inventory ===\n")
@@ -564,6 +565,7 @@ while True:
 
     #allows for the user to exit the program during the choice selection
     elif choice == 9:                       #created by: Dan Caveney
+        #This choice is to allow for the user to save and exit the program, as well as decide not to save and/or exit
         def exit_program():
             print("=== You have selected the Save and Exit option. Make sure everything is as it should before saving and exiting the program ===")
             print("\n=== Before you leave, would you like to save your changes? ===\n")
@@ -595,6 +597,7 @@ while True:
             else:
                 ("\nInvalid input! enter y or n\n")
         exit_program()
+
 
 
 
