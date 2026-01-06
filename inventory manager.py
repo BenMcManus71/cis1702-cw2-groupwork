@@ -412,36 +412,36 @@ while True:
     #it should also have a way to display items added if choice == 7
     
         def display_stock_info(data):
-        product_details = data[1]
-
-        print("\nAvailable items:")   #shows the list of all items
-        for item in product_details:
-            print(f"- {item}")
-
-        item_name = input("\nEnter item name: ").lower()  #allows the user to choose which item to view
-
-        if item_name not in product_details:  #if item not found allows them to choose again
-            print("Item not found.")
-            return
-
-        total_value = sum(          #works out all calculations needed
-            details["cost"] * details["stock"]
-            for details in product_details.values()
-        )
-
-        details = product_details[item_name]
-        item_value = details["cost"] * details["stock"]
-        percentage = (item_value / total_value * 100) if total_value > 0 else 0
-
-        print("\n--- Stock Information ---")    #prints all the values for the user
-        print(f"Item: {item_name}")
-        print(f"Product Code: {details['product_code']}")
-        print(f" Stock: {details['stock']}")
-        print(f" Cost per unit: £{details['cost']}")
-        print(f" Stock value: £{item_value:.2f}")
-        print(f" % of total stock value: {percentage:.1f}%")
-
-    display_stock_info(data)
+            product_details = data[1]
+    
+            print("\nAvailable items:")   #shows the list of all items
+            for item in product_details:
+                print(f"- {item}")
+    
+            item_name = input("\nEnter item name: ").lower()  #allows the user to choose which item to view
+    
+            if item_name not in product_details:  #if item not found allows them to choose again
+                print("Item not found.")
+                return
+    
+            total_value = sum(          #works out all calculations needed
+                details["cost"] * details["stock"]
+                for details in product_details.values()
+            )
+    
+            details = product_details[item_name]
+            item_value = details["cost"] * details["stock"]
+            percentage = (item_value / total_value * 100) if total_value > 0 else 0
+    
+            print("\n--- Stock Information ---")    #prints all the values for the user
+            print(f"Item: {item_name}")
+            print(f"Product Code: {details['product_code']}")
+            print(f" Stock: {details['stock']}")
+            print(f" Cost per unit: £{details['cost']}")
+            print(f" Stock value: £{item_value:.2f}")
+            print(f" % of total stock value: {percentage:.1f}%")
+    
+        display_stock_info(data)
 
     elif choice == 7:                      # created by: Aaron Rielly
     # this is to update an items value, which involves changing the name, price & quantity_per_unit
@@ -528,7 +528,7 @@ while True:
     #this is to add another value that isnt included already, such as buy in price
         
         def add_or_update_field_for_all_items(data):
-        product_details = data[1] 
+            product_details = data[1] 
 
             while True:  
                 field_name = input("Enter the name of the value you want to add: ").strip()
@@ -590,6 +590,7 @@ while True:
             else:
                 ("\nInvalid input! enter y or n\n")
         exit_program()
+
 
 
 
