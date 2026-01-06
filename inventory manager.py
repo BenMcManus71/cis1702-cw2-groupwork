@@ -548,8 +548,8 @@ while True:
                 print("\n--- Stock List ---")
                 for name, details in data[1].items():
                     print(f"\nItem: {name}")
-                for key, value in details.items():
-                    print(f"  {key}: {value}")
+                    for key, value in details.items():
+                        print(f"  {key}: {value}")
         
                 again = input("\nDo yoou want to add another value? (yes or no):")
                 if again != 'yes':
@@ -590,6 +590,7 @@ while True:
             else:
                 ("\nInvalid input! enter y or n\n")
         exit_program()
+
 
 
 
