@@ -524,9 +524,38 @@ while True:
             save = input("\nSave changes? (y/n): ").lower() 
 
  
-    #elif choice == 8:                      #created by:
+    elif choice == 8:                      #created by: robert littler
     #this is to add another value that isnt included already, such as buy in price
+        
+        def add_or_update_field_for_all_items(data):
+        product_details = data[1] 
 
+            while True:  
+                field_name = input("Enter the name of the value you want to add: ").strip()
+
+                for item_name, item_details in product_details.items():
+                    value = input(f"Enter '{field_name}' for {item_name}: ").strip()
+
+                    if value.replace('.', '', 1).isdigit():
+                        if '.' in value:
+                            value = float(value)
+                        else:
+                            value = int(value)
+
+                    item_details[field_name] = value
+
+                print(f"\nAll items updated with '{field_name}' successfully!\n")
+                print("\n--- Stock List ---")
+                for name, details in data[1].items():
+                    print(f"\nItem: {name}")
+                for key, value in details.items():
+                    print(f"  {key}: {value}")
+        
+                again = input("\nDo yoou want to add another value? (yes or no):")
+                if again != 'yes':
+                    break
+
+        add_or_update_field_for_all_items(data)
 
     #allows for the user to exit the program during the choice selection
     elif choice == 9:                       #created by: Dan Caveney
@@ -561,6 +590,7 @@ while True:
             else:
                 ("\nInvalid input! enter y or n\n")
         exit_program()
+
 
 
 
